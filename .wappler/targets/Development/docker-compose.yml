@@ -1,15 +1,38 @@
-version: '3'
 services:
   web:
-    image: php:8.2-apache
     volumes:
-      - '../../../www/:/var/www/html/'
+      - '../../../www:/var/www/html/'
     ports:
       - '8100:80'
-    restart: always
+    restart: 'always'
     stdin_open: true
     tty: true
     logging:
       options:
         max-file: '5'
         max-size: '10m'
+    depends_on:
+      - 'db'
+    build:
+      context: '../../../'
+      dockerfile: '.wappler/targets/Development/web/Dockerfile'
+  db:
+    image: 'mysql:8.0'
+    environment:
+      MYSQL_ROOT_PASSWORD: 't956Ctqc'
+      MYSQL_DATABASE: 'online_store'
+      MYSQL_USER: 'db_user'
+      MYSQL_PASSWORD: 'Rx5JiGGJ'
+    volumes:
+      - './db_init:/docker-entrypoint-initdb.d'
+    ports:
+      - '9906:3306'
+    restart: 'always'
+    logging:
+      options:
+        max-file: '5'
+        max-size: '10m'
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_unicode_ci'
+      - '--default-authentication-plugin=mysql_native_password'

@@ -32,12 +32,23 @@
       "webServer": "apache",
       "PHPVersion": "8.2.x",
       "webLoggingMaxFiles": "5",
-      "webLoggingMaxFileSize": "10m"
+      "webLoggingMaxFileSize": "10m",
+      "databaseLoggingMaxFiles": "5",
+      "databaseLoggingMaxFileSize": "10m",
+      "databaseType": "mysql",
+      "mySQLVersion": "8.0.x",
+      "noSampleData": true,
+      "databasePort": 9906,
+      "mySQL_rootPassword": "t956Ctqc",
+      "mySQL_databaseName": "online_store",
+      "mySQL_username": "db_user",
+      "mySQL_password": "Rx5JiGGJ"
     }
   ],
   "activeTarget": "Development",
   "useRouting": true,
   "addBase": true,
   "routingHandler": "apache",
-  "projectType": "web"
+  "projectType": "web",
+  "extensions": []
 }

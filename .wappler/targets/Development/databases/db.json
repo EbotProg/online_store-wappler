@@ -1,0 +1,11 @@
+{
+  "direct": true,
+  "type": "mysql2",
+  "connection": {
+    "host": "127.0.0.1",
+    "port": 9906,
+    "user": "db_user",
+    "password": "Rx5JiGGJ",
+    "database": "online_store"
+  }
+}
