@@ -1,0 +1,20 @@
+{
+  "require": {
+    "php": ">=5.6",
+    "ext-curl": "*",
+    "ext-gd": "*",
+    "ext-hash": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-openssl": "*",
+    "ext-pcre": "*",
+    "ext-pdo": "*",
+    "ext-session": "*"
+  },
+  "config": {
+    "platform": {
+      "php": "5.6.0"
+    },
+    "platform-check": true
+  }
+}

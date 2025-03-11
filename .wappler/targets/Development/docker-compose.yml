@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    image: php:8.2-apache
+    volumes:
+      - '../../../www/:/var/www/html/'
+    ports:
+      - '8100:80'
+    restart: always
+    stdin_open: true
+    tty: true
+    logging:
+      options:
+        max-file: '5'
+        max-size: '10m'
