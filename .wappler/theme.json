@@ -1,0 +1,9 @@
+{
+  "bootstrap5": {
+    "basic": {},
+    "advanced": {
+      "nav-tabs-link-active-bg": "#d2e5ff",
+      "nav-tabs-link-active-color": "#004062"
+    }
+  }
+}

@@ -10,173 +10,9 @@
   },
   "schema": {
     "tables": {
-      "customer": {
-        "columns": {
-          "id": {
-            "db_edits": {
-              "name": "id",
-              "type": "increments"
-            },
-            "status": {
-              "new": true
-            }
-          },
-          "customer_firstname": {
-            "db_edits": {
-              "type": "string",
-              "name": "firstname"
-            },
-            "status": {
-              "new": true
-            }
-          },
-          "customer_lastname": {
-            "db_edits": {
-              "type": "string",
-              "name": "lastname"
-            },
-            "status": {
-              "new": true
-            }
-          },
-          "customer_address": {
-            "db_edits": {
-              "type": "string",
-              "name": "address"
-            },
-            "status": {
-              "new": true
-            }
-          },
-          "customer_email": {
-            "db_edits": {
-              "type": "string",
-              "name": "email"
-            },
-            "status": {
-              "new": true
-            }
-          }
-        },
-        "db": {},
-        "db_edits": {
-          "name": "customers"
-        },
-        "status": {
-          "new": true,
-          "children_modified": true
-        }
-      },
-      "orders": {
-        "columns": {
-          "id": {
-            "db_edits": {
-              "name": "id"
-            },
-            "status": {
-              "new": true
-            },
-            "db": {
-              "type": "increments",
-              "primary": true,
-              "nullable": false
-            }
-          },
-          "customer_id": {
-            "db_edits": {
-              "name": "customer_id",
-              "maxLength": ""
-            },
-            "status": {
-              "new": true
-            },
-            "db": {
-              "type": "integer",
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "product_id": {
-            "db_edits": {
-              "name": "product_id",
-              "maxLength": ""
-            },
-            "status": {
-              "new": true
-            },
-            "db": {
-              "type": "integer",
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "status": {
-            "db_edits": {
-              "name": "status",
-              "maxLength": "",
-              "default": "",
-              "enumValues": [
-                "DONE",
-                "PENDING",
-                "CANCELLED"
-              ]
-            },
-            "status": {
-              "new": true
-            },
-            "db": {
-              "type": "enum",
-              "enumValues": [
-                "DONE",
-                "PENDING",
-                "CANCELLED"
-              ],
-              "maxLength": 9,
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "orderedOn": {
-            "db_edits": {
-              "name": "orderedOn",
-              "maxLength": ""
-            },
-            "status": {
-              "new": true
-            },
-            "db": {
-              "type": "datetime",
-              "default": "knex.fn.now()",
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "executedOn": {
-            "db_edits": {
-              "name": "executedOn",
-              "maxLength": ""
-            },
-            "status": {
-              "new": true
-            },
-            "db": {
-              "type": "datetime",
-              "primary": false,
-              "nullable": true
-            }
-          }
-        },
-        "db": {}
-      },
       "products": {
         "columns": {
           "id": {
-            "db_edits": {
-              "name": "id"
-            },
-            "status": {
-              "new": true
-            },
             "db": {
               "type": "increments",
               "primary": true,
@@ -199,13 +35,6 @@
             }
           },
           "qty": {
-            "db_edits": {
-              "name": "qty",
-              "maxLength": ""
-            },
-            "status": {
-              "new": true
-            },
             "db": {
               "type": "integer",
               "primary": false,
@@ -214,9 +43,171 @@
           }
         },
         "db": {}
+      },
+      "orders": {
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "customer_id": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "product_id": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "status": {
+            "db": {
+              "type": "enum",
+              "enumValues": [
+                "DONE",
+                "PENDING",
+                "CANCELLED"
+              ],
+              "maxLength": 9,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "orderedOn": {
+            "db": {
+              "type": "datetime",
+              "default": "knex.fn.now()",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "executedOn": {
+            "db": {
+              "type": "datetime",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "qtyOrdered": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "totalAmount": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": true
+            }
+          }
+        },
+        "db": {}
+      },
+      "customer": {
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "firstname": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "lastname": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "address": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "email": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "phone": {
+            "db": {
+              "type": "bigInteger",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "createdOn": {
+            "db": {
+              "type": "datetime",
+              "primary": false,
+              "nullable": true,
+              "default": "knex.fn.now()"
+            }
+          },
+          "updatedOn": {
+            "db": {
+              "type": "datetime",
+              "default": "knex.fn.now()",
+              "primary": false,
+              "nullable": true
+            }
+          }
+        },
+        "db": {}
       }
     },
-    "views": {},
+    "views": {
+      "product_frequency": {
+        "db": {
+          "engine": null,
+          "schema": "online_store",
+          "collation": null,
+          "comment": "VIEW",
+          "sql": "select `online_store`.`products`.`name` AS `name`,(select count(0) from `online_store`.`orders` where (`online_store`.`products`.`id` = `online_store`.`orders`.`product_id`)) AS `order_frequency` from `online_store`.`products`"
+        },
+        "columns": {
+          "name": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "order_frequency": {
+            "db": {
+              "type": "bigInteger",
+              "primary": false,
+              "nullable": true
+            }
+          }
+        }
+      }
+    },
     "collations": [
       {
         "collation": "utf8mb4_0900_ai_ci",
