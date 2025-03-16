@@ -1,0 +1,6 @@
+<?php
+
+$CONFIG_DEBUG = true;
+$CONFIG_SECRET_KEY = 'ZledjWLAaMBYhCs';
+$CONFIG_CORS_CREDENTIALS = false;
+

@@ -1,0 +1,10 @@
+div.row.mt-5.pt-0.h-auto.gy-0.gx-0.rounded-3 {
+    overflow:hidden;
+    height:40px !important 
+}
+div.col {
+    height:100%;
+    text-align:center 
+}
+div.container { 
+}
